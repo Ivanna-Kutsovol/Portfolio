@@ -39,7 +39,7 @@ const Experience = () => {
                         <div className={stl.experience__cardText}>
                             <h2 className={stl.experience__cardTitle}>{item.title}</h2>
                             <p className={stl.experience__cardDescription}>{item.description}</p>
-                            <Link href={item.button} className={stl.experience__cardButton}>Learn more</Link>
+                            <Link target="_blank" rel="noopener noreferrer" href={item.button} className={stl.experience__cardButton}>Learn more</Link>
                         </div>
                     </div>
                 ))}
