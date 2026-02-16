@@ -75,7 +75,7 @@ function Contact() {
                 </div>
 
                 <div className={stl.contact__social}>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/typicalivanna_/#">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/typicalivanna/#">
                         <Image className={stl.contact__icon} src={Inst} alt="inst icon" width={20} height={20} />
                     </a>
                     <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ivanna-kucovol/">
