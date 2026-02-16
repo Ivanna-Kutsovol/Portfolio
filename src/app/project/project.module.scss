@@ -52,6 +52,9 @@
             padding: 0;
             object-fit: fill;
         }
+        @include monitor{
+            width: 800px;
+        }
     }
     &__description{
         position: absolute;
