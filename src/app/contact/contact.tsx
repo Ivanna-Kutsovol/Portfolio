@@ -56,7 +56,7 @@ function Contact() {
     };
 
     return (
-        <section className={stl.contact}>
+        <section id="contact" className={stl.contact}>
             <section className={stl.contact__main}>
                 <h1 className={stl.contact__title}>Contact</h1>
                 <div className={stl.contact__container}>

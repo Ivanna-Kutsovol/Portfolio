@@ -23,6 +23,7 @@ export const Header = () => {
                 <Link className={stl.header__link} href="/#experience">Experience</Link>
                 <Link className={stl.header__link} href="/#skills">Skills</Link>
                 <Link className={stl.header__link} href="/#project">Project</Link>
+                <Link className={`${stl.header__link} ${stl.header__contact}`} href="/#contact">Contact</Link>
                 <Image className={stl.header__gradient} src={Gradient} alt="gradient" width={333} height={333}/>
             </nav>
         </header>
