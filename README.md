@@ -41,7 +41,7 @@ Live demo:
 - **Contact** — contact form to send messages directly to email  
 
 **Dependencies**:  
-``json
+```json
 "dependencies": {
     "next": "15.5.5",
     "nodemailer": "^7.0.9",
