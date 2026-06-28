@@ -5,9 +5,9 @@
     flex-direction: column;
     gap: 32px;
     position: relative;
-    padding: 80px 16px;
+    padding: 150px 16px 80px 16px;
     @include desktop{
-        padding: 100px 150px;
+        padding: 220px 150px 100px 150px;
     }
     &__first{
         position: relative;
@@ -35,17 +35,19 @@
                 width: 80px;
                 height: 50px;
                 margin-left: 8px;
-                background: url("/about/arrowAbout.svg") no-repeat center;
+                background: var(--arrow) no-repeat center;
                 background-size: contain;
                 left: -80px;
-                top: 15px;
+                top: 16px;
             }
         }
     }
     &__name{
-        color: #7127BA;
+        color: var(--accent-text);
     }
     &__containerImage{
+        --about-gradient: url("/about/gradientAbout.svg");
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -58,7 +60,8 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: url("/about/gradientAbout.svg") no-repeat center;
+            background: var(--about-gradient) no-repeat center;
+            background-size: contain;
             z-index: 0;
             width: 100%;
             height: 100%;
@@ -74,6 +77,9 @@
             height: 430px;
             margin: 0;
         }
+    }
+    .creativeImage {
+        --about-gradient: url("/about/gradientCreative.png");
     }
     &__gradient{
         position: absolute;
@@ -108,7 +114,7 @@
         }
         span{
             position: relative;
-            color: #7127BA;
+            color: var(--accent-text);
             z-index: 1;
 
             &::before {
@@ -119,7 +125,7 @@
                 width: 250%;
                 height: 75%;
                 transform: translate(-30%, -50%);
-                border: 2px solid #ffffff;
+                border: 2px solid var(--border-color);
                 border-radius: 50%;
                 z-index: -1;
             }
@@ -149,7 +155,7 @@
         &__cursor{
             display: inline-block;
             width: 2px;
-            background-color: #7127BA;
+            background-color: var(--accent-text);
             animation: blink 1s infinite;
         }
     }

@@ -10,6 +10,12 @@ import Inst from "../../../public/contact/inst.svg";
 import In from "../../../public/contact/in.svg";
 import Git from "../../../public/contact/git.svg";
 
+import InstCreative from "../../../public/contact/instCreative.svg";
+import InCreative from "../../../public/contact/inCreative.svg";
+import GitCreative from "../../../public/contact/gitCreative.svg";
+
+import {useTheme} from "../../components/theme/ThemeProvider";
+
 export interface FormData {
     firstName: string;
     lastName: string;
@@ -18,6 +24,8 @@ export interface FormData {
 }
 
 function Contact() {
+    const {isCreative} = useTheme();
+
     const [alertText, setAlertText] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const {register, handleSubmit, formState: {errors}, reset} = useForm<FormData>(
@@ -73,18 +81,32 @@ function Contact() {
                         <a href="tel:+436764065103" className={stl.contact__dateLink}>+43 676 4065103</a>
                     </div>
                 </div>
-
-                <div className={stl.contact__social}>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/typicalivanna/#">
-                        <Image className={stl.contact__icon} src={Inst} alt="inst icon" width={20} height={20} />
-                    </a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ivanna-kucovol/">
-                        <Image className={stl.contact__icon} src={In} alt="in icon" width={20} height={20} />
-                    </a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ivanna-Kutsovol">
-                        <Image className={stl.contact__icon} src={Git} alt="git icon" width={20} height={20} />
-                    </a>
-                </div>
+                
+                    {isCreative ? (
+                        <div className={stl.contact__social}>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ivanna.codeslab/#">
+                                <Image className={stl.contact__icon} src={InstCreative} alt="inst icon" width={20} height={20} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ivanna-kucovol/">
+                                <Image className={stl.contact__icon} src={InCreative} alt="in icon" width={20} height={20} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ivanna-Kutsovol">
+                                <Image className={stl.contact__icon} src={GitCreative} alt="git icon" width={20} height={20} />
+                            </a>
+                        </div>
+                    ) : (
+                        <div className={stl.contact__social}>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ivanna.codeslab/#">
+                                <Image className={stl.contact__icon} src={Inst} alt="inst icon" width={20} height={20} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ivanna-kucovol/">
+                                <Image className={stl.contact__icon} src={In} alt="in icon" width={20} height={20} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ivanna-Kutsovol">
+                                <Image className={stl.contact__icon} src={Git} alt="git icon" width={20} height={20} />
+                            </a>
+                        </div>
+                    )}
                 </div>
             </section>
             <form className={stl.form} onSubmit={handleSubmit(onSubmit)}>

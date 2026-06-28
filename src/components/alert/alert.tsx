@@ -3,8 +3,10 @@
 import React, {useEffect, useState} from "react";
 import stl from "./alert.module.scss";
 import Image from "next/image";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
-import Solid from "../../../public/solid.gif";
+import Solid from "../../../public/solidFrontent.gif";
+import SolidCreative from "../../../public/solidCreative.gif";
 
 export interface AlertProps {
     text: string;
@@ -12,6 +14,8 @@ export interface AlertProps {
     onClose: () => void;
 }
 const Alert: React.FC<AlertProps>=({text, duration = 3000, onClose}) => {
+    const {isCreative} = useTheme();
+
     const [visible, setVisible] = useState(true);
     useEffect(() => {
         setVisible(true);
@@ -29,7 +33,12 @@ const Alert: React.FC<AlertProps>=({text, duration = 3000, onClose}) => {
 
     return(
     <div className={`${stl.alert} ${visible ? stl.show : stl.hide}`}>
-        <Image src={Solid} alt="solid" width={50} height={50}/>
+            {isCreative ? (
+                <Image className={stl.alert__gif} src={SolidCreative} alt="solidCreative" width={50} height={50}/>
+            ) :
+            (
+                <Image className={stl.alert__gif} src={Solid} alt="solid" width={50} height={50}/>
+            )}
         <p>{text}</p>
         <button className={stl.alert__button} onClick={onClose}>✖</button>
     </div>

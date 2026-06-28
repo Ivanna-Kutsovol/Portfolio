@@ -40,7 +40,7 @@
     &__line{
         width: 100%;
         height: 1px;
-        background-color: #FEFAEE;
+        background-color: var(--contact-bg);
         @include tablet{
             width: 80%;
         }
@@ -60,12 +60,12 @@
         gap: 10px;
     }
     &__dateLink{
-        color: #FFFFFF80;
+        color: var(--date-link);
         @include tablet{
             transition: 0.5s;
             cursor: pointer;
             &:hover{
-                color: #FFFFFF;
+                color: var(--border-color);
             }
         } 
     }
@@ -117,9 +117,9 @@
         width: 100%;
         padding: 10px;
         background-color: transparent;
-        border: 1px solid #FEFAEE24;
+        border: 1px solid var(--border-input);
         border-radius: 24px;
-        color: #FEFAEE;
+        color: var(--contact-bg);
         padding: 12px 24px;
         font-size: 14px;
         resize: none;
@@ -131,11 +131,11 @@
         }
         @include tablet{
             &:hover{
-                border: 1px solid #FEFAEE;
+                border: 1px solid var(--contact-bg);
                 transition: 0.5s;
             }
             &:focus{
-                border: 1px solid #FEFAEE;
+                border: 1px solid var(--contact-bg);
             }
         }
     }
@@ -143,9 +143,9 @@
         width: 100%;
         padding: 10px;
         background-color: transparent;
-        border: 1px solid #FEFAEE;
+        border: 1px solid var(--contact-bg);
         border-radius: 24px;
-        color: #FEFAEE;
+        color: var(--contact-bg);
         padding: 10px 24px;
         font-size: 14px;
         text-align: center;
@@ -158,7 +158,7 @@
             text-transform: lowercase;
             cursor: pointer;
             &:hover{
-                background-color: #FEFAEE24;
+                background-color: var(--border-input);
             }
         }
     }
@@ -174,12 +174,12 @@
         font-size: 14px;
     }
     &__link{
-        color: #FFFFFF80;
+        color: var(--date-link);
         @include tablet{
             transition: 0.5s;
             cursor: pointer;
             &:hover{
-                color: #FFFFFF;
+                color: var(--contact-hover);
             }
         }
     }
@@ -187,7 +187,7 @@
         position: absolute;
         bottom: -25px;
         right: 20px;
-        color: #802111;
+        color: var(--error);
         font-size: 12px;
     }
 }
