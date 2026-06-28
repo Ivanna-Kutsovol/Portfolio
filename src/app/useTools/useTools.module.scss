@@ -1,0 +1,50 @@
+@use "../styles/media" as *;
+@use "../styles/mixins" as *;
+
+.useTools{
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    &__title{
+        @include title; 
+    }
+    
+    @include container;
+    &__list{
+        display: grid;
+        font-size: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        align-items: center;
+        justify-items: center;
+        &__separator{
+            display: none;
+            @include tablet{
+                display: block;
+            }
+        }
+        @include tablet{
+            display: flex;
+            gap: 20px;
+            font-size: 22px;
+            align-items: center;
+            justify-items: center;
+        }
+        @include desktop{
+            gap: 30px;
+        }
+    }
+    &__star{
+        position: absolute;
+        top: 45px;
+        right: 10%;
+        @include tablet{
+            top: 5px;
+            right: 28%;
+        }
+        @include desktop{
+            top: 0px;
+            right: 40%;
+        }
+    }
+}

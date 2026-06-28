@@ -1,0 +1,111 @@
+@use "../styles/media" as *;
+@use "../styles/mixins" as *;
+
+.bg{
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 135%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    @include tablet{
+        top: -30px;
+    }
+    @include desktop{
+        width: 140% !important;
+        left: -25% !important;
+    }
+    @include monitor{
+        width: 170% !important;
+        left: -35% !important;
+    }
+}
+.contentIns{
+    position: relative;
+    z-index: 2;
+    &__title{
+        z-index: 3;
+        @include title;
+    }
+
+    &__slider {
+        width: 100%;
+        padding: 0 34px;
+    }
+
+    &__card {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__slide {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__icon {
+        max-width: 200px;
+        height: 400px;
+        object-fit: contain;
+    }
+
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+        width: 40px;
+        height: 40px;
+        background-size: 26px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("/arrow.svg");
+        color: transparent;
+
+        @include tablet {
+            width: 60px;
+            height: 60px;
+            background-size: 40px;
+        }
+    }
+
+    :global(.swiper-button-prev)::after,
+    :global(.swiper-button-next)::after {
+        display: none;
+        content: "";
+        font-size: 0;
+    }
+
+    :global(.swiper-button-prev) {
+        rotate: 180deg;
+        left: -10px;
+        @include tablet {
+            left: -20px;
+        }
+    }
+
+    :global(.swiper-button-next) {
+        right: -10px;
+        @include tablet {
+            right: -20;
+        }
+    }
+
+    @include container;
+
+    @include tablet {
+        &__slider {
+            padding: 0 46px;
+        }
+
+        &__icon {
+            max-width: 260px;
+        }
+    }
+
+    @include desktop {
+        &__icon {
+            max-width: 300px;
+        }
+    }
+}
