@@ -1,61 +1,76 @@
 @use "../../../../src/app/styles/media" as *;
 .header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #1A0B2E;
+    background-color: var(--header-bg);
+    color: #ffffff;
     padding: 16px;
-    position: relative;
-    align-items: center;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+
     @include laptop{
         padding: 37px 40px;
     }
     @include desktop{
-        width: 100%;
         box-sizing: border-box;
-        gap: 100px;
         padding: 37px 150px;
     }
+    &__inner{
+        justify-content: space-between;
+        max-width: 1260px;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+    }
     &.open{
-        background-color: #11071F;
-        position: fixed;
+        background-color: var(--header-menu-bg);
         top: 0;
         left: 0;
         width: 100vw;
         z-index: 100;
     }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        @include tablet{
+            gap: 70px;
+        }
+        @include laptopLarge{
+            flex-direction: row;
+            gap: 30px;
+            max-width: 1540px;
+        }
+    }
+    &__containerNav{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 20px;
+        @include laptopLarge{
+            flex-direction: row;
+            width: 100%;
+        }
+    }
     &__nav{
         display: none;
-        justify-content: space-between;
-        align-items: start;
+        // justify-content: space-between;
+        align-items: center;
         width: 100%;
         flex-direction: column;
         gap: 40px;
         position: fixed;
         top: 75px;
         left: 0;
-        align-items: start;
         padding: 48px 16px 150px;
         text-transform: uppercase;
         
         &.open{
             display: flex !important;
-            background-color: #11071F;
+            background-color: var(--header-menu-bg);
         }
-        @include laptop{
+        @include laptopLarge{
             display: flex;
-            flex-direction: row;
-            position: static;
-            padding: 0;
-            gap: 0;
-            background-color: transparent;
-            text-transform: none;
-            justify-content: end;
-            background-color: transparent;
-
-        }
-        @include desktop{
-            display: flex;
-            flex-direction: row;
             position: static;
             padding: 0;
             gap: 0;
@@ -64,23 +79,22 @@
         }
     }
     &__contact{
-        padding: 25px;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(50, 15, 133, 0), #763cac);
+        padding: 15px 30px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(50, 15, 133, 0), var(--header-gradient));
         border-radius: 20px;
         transition: background 0.5s ease;
         @include tablet{
-            padding: 15px 20px;
+            padding: 20px;
         }
     }
     &__link{
+        color: #ffffff;
         @include tablet{
             font-size: 20px;
-            padding: 20px;
             line-height: 0%;
         }
-
         &:hover{
-            background: radial-gradient(50% 50% at 50% 50%, #763cac, rgba(50, 15, 133, 0));
+            background: radial-gradient(50% 50% at 50% 50%, var(--header-gradient), rgba(50, 15, 133, 0));
             border-radius: 50%;
             transition: background 0.5s ease;
         }
@@ -89,7 +103,6 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         width: 30px;
         height: 21px;
         background-color: transparent;
@@ -103,7 +116,7 @@
         &.open span:nth-child(2){
             transform: translateY(-6px) rotate(-45deg);
         }
-        @include tablet{
+        @include laptopLarge{
             display: none;
         }
     }
@@ -114,6 +127,9 @@
         transform: translateX(-50%);
         z-index: -1;
         width: 100%;
+        @include laptopLarge{
+            display: none;
+        }
     }
 }
 .bar{
