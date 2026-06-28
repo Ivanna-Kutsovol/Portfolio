@@ -1,0 +1,22 @@
+@forward './media';
+@use "./media" as *;
+
+@mixin title {
+    font-size: 25px;
+        @include tablet{
+            font-size: 30px;
+        }
+}
+
+@mixin container {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    padding: 0 16px 80px;
+    @include tablet{
+        padding: 0 80px 165px;
+    }
+    @include desktop{
+        padding: 0 150px 165px;
+    }
+}

@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/header/header";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "./styles/App.scss";
 
 export default function RootLayout({
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header/>
-        {children}
+        <ThemeProvider>
+          <Header/>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
