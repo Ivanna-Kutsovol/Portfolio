@@ -63,9 +63,9 @@ export const Header = () => {
                         </nav>
                     )}
                         {isCreative ? (
-                            <Button text="Frontend" targetId="about" onClick={() => setIsCreative(false)} align="left" circle/>
+                            <Button text="Frontend" href="/" targetId="about" onClick={() => setIsCreative(false)} align="left" circle/>
                         ) : (
-                            <Button text="Creative" targetId="about" onClick={() => setIsCreative(true)} align="right"circle/>
+                            <Button text="Creative" href="/creative" targetId="about" onClick={() => setIsCreative(true)} align="right"circle/>
                         )}
                 </div>
             </div>
