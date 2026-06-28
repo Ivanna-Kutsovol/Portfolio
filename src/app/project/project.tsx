@@ -28,15 +28,15 @@ const array = [
         desktopCover: '/project/toyhouse.png',
         desktopDescription: 'Toy House is a pet-project online toy store.The project is built with Next.js and demonstrates key features of a modern e-commerce application: product catalog, shopping cart with total calculation, order form, as well as additional interactive elements and advanced UX.'
     },
-    {
-        title: 'Bravex WordPress Website',
-        link: 'http://bravexportfolio.free.nf/',
-        gitHub: 'https://github.com/Ivanna-Kutsovol/bravexWP',
-        cover: '/project/bravexMobile.png',
-        description: 'Pet-project website built on WordPress, featuring custom pages, responsive layout, contact form, and user-friendly content management.',
-        desktopCover: '/project/bravex.png',
-        desktopDescription: 'Bravex is a pet-project website built on WordPress. The project demonstrates key features of a modern business website: structured content pages, responsive design, contact form integration, and easy content editing through the WordPress admin panel.'
-    }
+    // {
+    //     title: 'Bravex WordPress Website',
+    //     link: 'http://bravexportfolio.free.nf/',
+    //     gitHub: 'https://github.com/Ivanna-Kutsovol/bravexWP',
+    //     cover: '/project/bravexMobile.png',
+    //     description: 'Pet-project website built on WordPress, featuring custom pages, responsive layout, contact form, and user-friendly content management.',
+    //     desktopCover: '/project/bravex.png',
+    //     desktopDescription: 'Bravex is a pet-project website built on WordPress. The project demonstrates key features of a modern business website: structured content pages, responsive design, contact form integration, and easy content editing through the WordPress admin panel.'
+    // }
 
 ]
 
