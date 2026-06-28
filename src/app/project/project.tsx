@@ -79,7 +79,7 @@ const Project = () => {
                                 <p className={stl.project__text}>Live Demo</p>
                             </a>
                         </div>
-                        <h1 className={stl.project__title}>{item.title}</h1>
+                        <h3 className={stl.project__title}>{item.title}</h3>
                         <a href={item.link} target="_blank" rel="noopener noreferrer">
                             <Image src={item.cover} alt="cover" width={375} height={600} className={stl.project__image} priority/>
                         </a>
@@ -100,7 +100,7 @@ const Project = () => {
                                             <p className={stl.project__text}>Live Demo</p>
                                         </a>
                                     </div>
-                                    <h1 className={stl.project__title}>{item.title}</h1>
+                                    <h3 className={stl.project__title}>{item.title}</h3>
                                     <p className={stl.project__description}>{item.desktopDescription}</p>
                                     <div className={stl.desktop__icons}>
                                         <Image src={iconClick} alt="icon" width={30} height={30} className={stl.desktop__icon}/>
@@ -109,7 +109,7 @@ const Project = () => {
                                 </div>
                                 <div className={`${stl.desktop__imageWrapper} ${index === 0 ? stl.bgDouble : stl.bgSingle}`}>
                                     <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                        <Image src={item.desktopCover} alt="cover" width={568} height={340} className={stl.project__image}/>
+                                        <Image src={item.desktopCover} alt={`${item.title} preview`} width={568} height={340} className={stl.project__image}/>
                                     </a>
                                 </div>
                             </div>

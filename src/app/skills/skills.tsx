@@ -16,8 +16,8 @@ const Skills = () => {
     return (
         <section className={stl.skills} id="skills">
             <section className={stl.skills__text}>
-                <h1 className={stl.skills__title}>Using these skills, <span className={stl.skills__highlight}>I craft websites</span></h1>
-                <h2 className={stl.skills__subtitle}>that don’t just work — they stand out.</h2>
+                <h2 className={stl.skills__title}>Using these skills, <span className={stl.skills__highlight}>I craft websites</span></h2>
+                <h3 className={stl.skills__subtitle}>that don’t just work — they stand out.</h3>
             </section>
             <section className={stl.skills__container}>
                 <div className={stl.skills__icons}>

@@ -22,7 +22,7 @@ import concrete from "../../../public/brandIdentity/concrete.png";
 const Identity = () => {
     return (
         <div className={stl.identity} id="identity">
-            <p className={stl.identity__title}>Brand Identity</p>
+            <h2 className={stl.identity__title}>Brand Identity</h2>
 
             
                 <Image src={name} alt="name" width={400} height={59} className={stl.identity__name}/>

@@ -76,7 +76,7 @@ const FeaturedWork = () => {
     }
     return (
     <div className={stl.featuredWork} id="featuredWork">
-        <p className={stl.featuredWork__title}>Featured Work</p>
+        <h2 className={stl.featuredWork__title}>Featured Work</h2>
         <section className={stl.featuredWork__container}>
             {videos.map((video, index) => (
                 <video

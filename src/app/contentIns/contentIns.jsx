@@ -36,7 +36,7 @@ const ContentIns = () => {
     return( 
         <div className={stl.contentIns} id="instContent">
             <Image style={{ width: "100%" }} src={papir} alt="background" className={stl.bg}/>
-            <p className={stl.contentIns__title}>Instagram Content</p>
+            <h2 className={stl.contentIns__title}>Instagram Content</h2>
                 <Swiper
                     className={stl.contentIns__slider}
                     slidesPerView={1}

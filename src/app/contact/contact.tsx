@@ -66,9 +66,9 @@ function Contact() {
     return (
         <section id="contact" className={stl.contact}>
             <section className={stl.contact__main}>
-                <h1 className={stl.contact__title}>Contact</h1>
+                <h2 className={stl.contact__title}>Contact</h2>
                 <div className={stl.contact__container}>
-                    <h2 className={stl.contact__subtitle}>Ready to elevate your online presence? I’m here to bring your ideas to life through clean, responsive, and engaging web experiences. Feel free to reach out.</h2>
+                    <p className={stl.contact__subtitle}>Ready to elevate your online presence? I’m here to bring your ideas to life through clean, responsive, and engaging web experiences. Feel free to reach out.</p>
                     <span className={stl.contact__line}/>
 
                 <div className={stl.contact__date}>

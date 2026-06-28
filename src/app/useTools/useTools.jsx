@@ -7,7 +7,7 @@ const UseTools = () => {
 
     return (
         <div className={stl.useTools} id="tools">
-            <p className={stl.useTools__title}>Tools I use</p>
+            <h2 className={stl.useTools__title}>Tools I use</h2>
             <Image src={Star} alt="star" width={54} height={36} className={stl.useTools__star}/>
             <ul className={stl.useTools__list}>
                 <li>Photoshop</li>
