@@ -8,12 +8,12 @@ import logo from "../../../public/brandIdentity/logoColor.svg";
 import inst from "../../../public/brandIdentity/inst.png";
 import tshirt from "../../../public/brandIdentity/tshirt.png";
 
-import aaimpact from "../../../public/brandIdentity/AaImpact.svg";
-import impact from "../../../public/brandIdentity/Impact.png";
-import aamontserrat from "../../../public/brandIdentity/AaMontserrat.svg";
-import montserrat from "../../../public/brandIdentity/MontserratSemiBold.png";
-import aaeveleth from "../../../public/brandIdentity/AaEveleth.svg";
-import eveleth from "../../../public/brandIdentity/EvelethSlant.png";
+import aaimpact from "../../../public/brandIdentity/aaImpact.svg";
+import impact from "../../../public/brandIdentity/impact.png";
+import aamontserrat from "../../../public/brandIdentity/aaMontserrat.svg";
+import montserrat from "../../../public/brandIdentity/montserratSemiBold.png";
+import aaeveleth from "../../../public/brandIdentity/aaEveleth.svg";
+import eveleth from "../../../public/brandIdentity/evelethSlant.png";
 
 import paper from "../../../public/brandIdentity/paper.png";
 import plaster from "../../../public/brandIdentity/plaster.png";
