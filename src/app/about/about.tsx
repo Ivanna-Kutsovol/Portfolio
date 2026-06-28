@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 import stl from "./about.module.scss";
 import Image from "next/image";
 
-import Iam from "../../../public/about/iam.png";
+import Iam from "../../../public/about/Iam.png";
 
 type AboutProps = {
     isCreative: boolean;

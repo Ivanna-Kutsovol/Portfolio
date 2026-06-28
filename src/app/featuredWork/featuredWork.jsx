@@ -4,7 +4,7 @@ import stl from "./featuredWork.module.scss";
 const videos = [
     "/featuredWork/firstTraining.mp4",
     "/featuredWork/t-shirt.mp4",
-    "/featuredWork/fightFirst.mp4",
+    "/featuredWork/fightfirst.mp4",
     "/featuredWork/broForgot.mp4",
 ];
 
