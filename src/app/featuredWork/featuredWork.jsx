@@ -1,4 +1,6 @@
-import React,{useRef, useEffect} from "react";
+"use client";
+
+import React,{useRef} from "react";
 import stl from "./featuredWork.module.scss";
 
 const videos = [
