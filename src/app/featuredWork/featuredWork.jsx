@@ -3,6 +3,8 @@
 import React,{useRef} from "react";
 import stl from "./featuredWork.module.scss";
 
+import { trackEvent } from "@/utils/analytics";
+
 const videos = [
     "/featuredWork/firstTraining.mp4",
     "/featuredWork/t-shirt.mp4",
@@ -49,6 +51,12 @@ const FeaturedWork = () => {
 
     const handleVideoClick = (index) => {
         const video = videoRefs.current[index]
+
+        trackEvent("featured_video_click", {
+            video_index: index,
+            video_src: videos[index],
+            location: "featured_work",
+        })
 
         if (isDesktop()) {
             video.defaultMuted = false;

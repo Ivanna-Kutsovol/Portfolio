@@ -15,6 +15,7 @@ import InCreative from "../../../public/contact/inCreative.svg";
 import GitCreative from "../../../public/contact/gitCreative.svg";
 
 import {useTheme} from "../../components/theme/ThemeProvider";
+import { trackEvent } from "../../utils/analytics";
 
 export interface FormData {
     firstName: string;
@@ -54,11 +55,23 @@ function Contact() {
             if(!response.ok){
                 throw new Error('Something went wrong');
             }
-            const result = await response.json();
+
+            trackEvent("generate_lead", {
+                form_name: "contact_form",
+                lead_type: "contact_request",
+                page: "home",
+            });
+
+            await response.json();
             setAlertText("Form successfully submitted!");
             reset();
             setIsSubmitting(false);
         } catch (error) {
+            trackEvent("contact_form_error", {
+                form_name: "contact_form",
+                error_type: "submit_failed",
+                page: "home",
+            });
             setAlertText("Error submitting form. Please try again.");
         }
     };
@@ -74,35 +87,89 @@ function Contact() {
                 <div className={stl.contact__date}>
                     <div className={stl.contact__dateItem}>
                         <h3 className={stl.contact__dateTitle}>Email:</h3>
-                        <a href="mailto:ivanna.codeslab@gmail.com" className={stl.contact__dateLink}>ivanna.codeslab@gmail.com</a>
+                        <a href="mailto:ivanna.codeslab@gmail.com" className={stl.contact__dateLink}
+                        onClick={() => {
+                            trackEvent("contact_link_click", {
+                                contact_type: "email",
+                                location: "contact_section",
+                            })
+                        }}>ivanna.codeslab@gmail.com</a>
                     </div>
                     <div className={stl.contact__dateItem}>
                         <h3 className={stl.contact__dateTitle}>Phone:</h3>
-                        <a href="tel:+436764065103" className={stl.contact__dateLink}>+43 676 4065103</a>
+                        <a href="tel:+436764065103" className={stl.contact__dateLink}
+                        onClick={() => {
+                            trackEvent("contact_link_click", {
+                                contact_type: "phone",
+                                location: "contact_section",
+                            })
+                        }}>+43 676 4065103</a>
                     </div>
                 </div>
                 
                     {isCreative ? (
                         <div className={stl.contact__social}>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ivanna.codeslab/#">
+                            <a target="_blank" rel="noopener noreferrer" 
+                                href="https://www.instagram.com/ivanna.codeslab/#"
+                                onClick={() =>{
+                                    trackEvent("social_click",{
+                                        platform: "instagram",
+                                        location: "contact_creative",
+                                    })
+                                }}>
                                 <Image className={stl.contact__icon} src={InstCreative} alt="inst icon" width={20} height={20} />
                             </a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ivanna-kucovol/">
+                            <a target="_blank" rel="noopener noreferrer" 
+                                href="https://www.linkedin.com/in/ivanna-kucovol/"
+                                onClick={() =>{
+                                    trackEvent("social_click",{
+                                        platform: "linkedin",
+                                        location: "contact_creative",
+                                    })
+                                }}>
                                 <Image className={stl.contact__icon} src={InCreative} alt="in icon" width={20} height={20} />
                             </a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ivanna-Kutsovol">
+                            <a target="_blank" rel="noopener noreferrer" 
+                                href="https://github.com/Ivanna-Kutsovol"
+                                onClick={() =>{
+                                    trackEvent("social_click",{
+                                        platform: "github",
+                                        location: "contact_creative",
+                                    })
+                                }}>
                                 <Image className={stl.contact__icon} src={GitCreative} alt="git icon" width={20} height={20} />
                             </a>
                         </div>
                     ) : (
                         <div className={stl.contact__social}>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ivanna.codeslab/#">
+                            <a target="_blank" rel="noopener noreferrer" 
+                                href="https://www.instagram.com/ivanna.codeslab/#"
+                                onClick={() =>{
+                                    trackEvent("social_click",{
+                                        platform: "instagram",
+                                        location: "contact_frontend",
+                                    })
+                                }}>
                                 <Image className={stl.contact__icon} src={Inst} alt="inst icon" width={20} height={20} />
                             </a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ivanna-kucovol/">
-                                <Image className={stl.contact__icon} src={In} alt="in icon" width={20} height={20} />
+                            <a target="_blank" rel="noopener noreferrer" 
+                                href="https://www.linkedin.com/in/ivanna-kucovol/"
+                                onClick={() =>{
+                                    trackEvent("social_click",{
+                                        platform: "linkedin",
+                                        location: "contact_frontend",
+                                    })
+                                }}>
+                                <Image className={stl.contact__icon} src={In} alt="linkedin icon" width={20} height={20} />
                             </a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ivanna-Kutsovol">
+                            <a target="_blank" rel="noopener noreferrer" 
+                                href="https://github.com/Ivanna-Kutsovol"
+                                onClick={() =>{
+                                    trackEvent("social_click",{
+                                        platform: "github",
+                                        location: "contact_frontend",
+                                    })
+                                }}>
                                 <Image className={stl.contact__icon} src={Git} alt="git icon" width={20} height={20} />
                             </a>
                         </div>
@@ -164,8 +231,8 @@ function Contact() {
                     {errors.message && <p className={stl.form__errors}>{errors.message.message}</p>}
                 </div>
                 <div className={stl.form__buttonContainer}>
-                <button disabled={isSubmitting} className={stl.form__button} type="submit">{isSubmitting ? "Sending..." : "Submit"}</button>
-                <p className={stl.form__text}>By submitting this form you read and agree to the <a className={stl.form__link}>Terms & Conditions</a> and <a className={stl.form__link}>our privacy policy</a>.</p>
+                    <button disabled={isSubmitting} className={stl.form__button} type="submit">{isSubmitting ? "Sending..." : "Submit"}</button>
+                    <p className={stl.form__text}>By submitting this form you read and agree to the <a className={stl.form__link}>Terms & Conditions</a> and <a className={stl.form__link}>our privacy policy</a>.</p>
                 </div>
             </form>
             {alertText && (

@@ -4,6 +4,8 @@ import stl from "./project.module.scss";
 import Image from "next/image";
 import iconClick from '../../../public/project/solidClick.svg';
 
+import { trackEvent } from "@/utils/analytics";
+
 import { Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
@@ -56,6 +58,19 @@ const Project = () => {
         }
     },[]);
 
+    const handleProjectClick = (
+        eventName: "project_github_click" | "project_demo_click",
+        project: string,
+        location: "project_link" | "project_card",
+        platform?: string
+    ) => {
+        trackEvent(eventName, {
+            project,
+            location,
+            ...(platform && { platform }),
+        });
+    };
+
     return (
         <section className={stl.project} id="project">
             <section className={stl.container}>
@@ -72,16 +87,38 @@ const Project = () => {
                 {...array.map((item, index) => (
                     <SwiperSlide key={index} className={stl.project__card}>
                         <div className={stl.project__links}>
-                            <a href={item.gitHub} target="_blank" rel="noopener noreferrer">
+                            <a href={item.gitHub} target="_blank" rel="noopener noreferrer"
+                                onClick={() =>{
+                                    handleProjectClick(
+                                        "project_github_click",
+                                        item.title,
+                                        "project_link",
+                                        "github",
+                                    )
+                                }}>
                                 <p className={stl.project__text}>GitHub</p>
                             </a>
-                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                            <a href={item.link} target="_blank" rel="noopener noreferrer"
+                                onClick={() => {
+                                    handleProjectClick(
+                                        "project_demo_click",
+                                        item.title,
+                                        "project_link"
+                                    )
+                                }}>
                                 <p className={stl.project__text}>Live Demo</p>
                             </a>
                         </div>
                         <h3 className={stl.project__title}>{item.title}</h3>
-                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                            <Image src={item.cover} alt="cover" width={375} height={600} className={stl.project__image} priority/>
+                        <a href={item.link} target="_blank" rel="noopener noreferrer"
+                            onClick={() => {
+                                handleProjectClick(
+                                    "project_demo_click",
+                                    item.title,
+                                    "project_card"
+                                )
+                            }}>
+                            <Image src={item.cover} alt={`${item.title} preview`} width={375} height={600} className={stl.project__image} priority/>
                         </a>
                         <p className={stl.project__description}>{item.description}</p>
                     </SwiperSlide>
@@ -93,10 +130,25 @@ const Project = () => {
                             <div key={index} className={`${stl.desktop__card} ${index % 2 === 0 ? stl.leftText : stl.rightText}`}>
                                 <div className={stl.desktop__text}>
                                     <div className={`${stl.project__links} ${stl.desktop__links}`}>
-                                        <a href={item.gitHub} target="_blank" rel="noopener noreferrer">
+                                        <a href={item.gitHub} target="_blank" rel="noopener noreferrer"
+                                            onClick={() =>{
+                                                handleProjectClick(
+                                                    "project_github_click",
+                                                    item.title,
+                                                    "project_link",
+                                                    "github"
+                                                )
+                                        }}>
                                             <p className={stl.project__text}>GitHub</p>
                                         </a>
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer"
+                                            onClick={() => {
+                                                handleProjectClick(
+                                                    "project_demo_click",
+                                                    item.title,
+                                                    "project_link"
+                                                )
+                                            }}>
                                             <p className={stl.project__text}>Live Demo</p>
                                         </a>
                                     </div>
@@ -108,7 +160,14 @@ const Project = () => {
                                     </div>
                                 </div>
                                 <div className={`${stl.desktop__imageWrapper} ${index === 0 ? stl.bgDouble : stl.bgSingle}`}>
-                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer"
+                                        onClick={() => {
+                                            handleProjectClick(
+                                                "project_demo_click",
+                                                item.title,
+                                                "project_card"
+                                            )
+                                    }}>
                                         <Image src={item.desktopCover} alt={`${item.title} preview`} width={568} height={340} className={stl.project__image}/>
                                     </a>
                                 </div>

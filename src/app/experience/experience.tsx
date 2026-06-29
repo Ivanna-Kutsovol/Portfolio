@@ -3,6 +3,8 @@ import stl from "./experience.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 
+import { trackEvent } from "@/utils/analytics";
+
 const array = [{
     title: 'Frontend Dev',
     description: 'Developing responsive, pixel-perfect websites using Next.js, React, and SCSS. Focused on clean UI, animations, and reusable components.',
@@ -35,11 +37,21 @@ const Experience = () => {
             <section className={stl.experience__container}>
                 {array.map((item, index) => (
                     <div key={index} className={stl.experience__card}>
-                        <Image src={item.icon} alt="icon" width={80} height={75} className={stl.experience__icon}/>
+                        <Image src={item.icon} alt={`${item.title} icon`} width={80} height={75} className={stl.experience__icon}/>
                         <div className={stl.experience__cardText}>
                             <h3 className={stl.experience__cardTitle}>{item.title}</h3>
                             <p className={stl.experience__cardDescription}>{item.description}</p>
-                            <Link target="_blank" rel="noopener noreferrer" href={item.button} className={stl.experience__cardButton}>Learn more</Link>
+                            <Link target="_blank" rel="noopener noreferrer" 
+                                href={item.button} className={stl.experience__cardButton}
+                                onClick={() => {
+                                    trackEvent("experience_button_click", {
+                                        experience: item.title,
+                                        location: "experience_card",
+                                        link: item.button,
+                                    })
+                                }}>
+                                Learn more
+                            </Link>
                         </div>
                     </div>
                 ))}
