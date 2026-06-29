@@ -36,7 +36,11 @@
   --arrow: url('/about/arrowAbout.svg');
   --alert-bg: linear-gradient(135deg, #2C1250, #38126d);
   --button-bg: #9c63f9;
-  --button-icon: url('/sent.gif')
+  --button-icon: url('/sent.gif');
+  --card:#E4DFF0;
+  --accept: #8B5CF6;
+  --accept-hover: #38126d;
+  --shadow:rgba(139,92,246,.18);
 }
 
 [data-theme="creative"] {
@@ -58,7 +62,11 @@
   --arrow: url('/about/arrowAboutCreative.svg');
   --alert-bg: linear-gradient(135deg, #FF4D6D, #a62c5d);
   --button-bg: #ff6985;
-  --button-icon: url('/sentCreative.gif')
+  --button-icon: url('/sentCreative.gif');
+  --card:   #F3F0F2;
+  --accept: #FF4D6D;
+  --accept-hover: #ff6985;
+  --shadow: rgba(110, 19, 64, 0.685);
 }
 
 @media (prefers-color-scheme: dark) {

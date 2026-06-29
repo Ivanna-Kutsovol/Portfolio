@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.9",
     "next": "^15.5.7",
     "nodemailer": "^7.0.9",
     "react": "19.1.0",

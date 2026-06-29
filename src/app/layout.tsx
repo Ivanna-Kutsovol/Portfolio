@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { Header } from "@/components/layout/header/header";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import CookieBanner from "@/components/cookieBanner/cookieBanner";
+import SectionViewTracker from "@/components/SectionViewTracker";
 import "./styles/App.scss";
 
 export const metadata: Metadata = {
@@ -76,7 +78,9 @@ export default function RootLayout({
         />
         <ThemeProvider>
           <Header/>
+          <SectionViewTracker />
           {children}
+          <CookieBanner />
         </ThemeProvider>
       </body>
     </html>
