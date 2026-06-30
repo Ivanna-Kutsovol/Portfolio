@@ -35,14 +35,14 @@ function About({isCreative}: AboutProps){
             
             <div className={stl.about__text}>
                 <h2 className={stl.about__subtitle}>A Digital Creative who</h2>
-                <h3 className={stl.about__highlight}>Judges a product by its <span>UI</span>...</h3>
-                <h4 className={stl.about__quote}>Because if the interface doesn’t speak to you, what will?</h4>
+                <h3 className={stl.about__highlight}>Builds brands through <span>UI</span>...</h3>
+                <h4 className={stl.about__quote}>Because every business deserves a website people remember</h4>
             </div>
             </section>
             <div className={stl.about__bio}>
                 <p className={stl.about__bio__title}>{displayText}
                     <span className={stl.about__bio__cursor}>|</span></p>
-                <p className={stl.about__bio__text}>Building modern web experiences, brand visuals, and social content with a strong focus on UI, motion, and identity.</p>
+                <p className={stl.about__bio__text}>  I create websites, visual identities, and digital content for businesses, creators, and personal brands — combining development, design, and storytelling into one experience.</p>
             </div>
         </section>
     )
