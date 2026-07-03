@@ -27,7 +27,7 @@ const array = [{
     title: 'WordPress Dev',
     description: 'I create and customize WordPress websites — building custom themes, ACF content sections, and WooCommerce pages with tailored cart/checkout layouts and custom CSS.',
     icon: "/experience/icon4.svg",
-    button: "http://bravexportfolio.free.nf/",
+    button: "https://github.com/Ivanna-Kutsovol/bravexWP",
 }]
 
 const Experience = () => {
