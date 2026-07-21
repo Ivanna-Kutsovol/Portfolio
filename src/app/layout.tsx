@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header/header";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import CookieBanner from "@/components/cookieBanner/cookieBanner";
 import SectionViewTracker from "@/components/SectionViewTracker";
+import { Analytics } from "@vercel/analytics/next";
 import "./styles/App.scss";
 
 export const metadata: Metadata = {
@@ -90,6 +91,7 @@ export default function RootLayout({
           {children}
           <CookieBanner />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
