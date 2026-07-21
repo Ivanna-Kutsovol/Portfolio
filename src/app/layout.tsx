@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import CookieBanner from "@/components/cookieBanner/cookieBanner";
 import SectionViewTracker from "@/components/SectionViewTracker";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./styles/App.scss";
 
 export const metadata: Metadata = {
@@ -92,6 +93,7 @@ export default function RootLayout({
           <CookieBanner />
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
